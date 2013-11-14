@@ -53,9 +53,10 @@ caso 9
 fimescolha
 fimprocedimento
 
+
 //------------------------------------------------------------------------------
 
-//procedimento para carregar os vetores com os registro
+//procedimento para carregar o vetor 1 com os dados do txt
 
 procedimento carregaarquivo
 
@@ -97,10 +98,57 @@ para x de 1 ate 244 faca
       fimenquanto
    fimse
 fimpara
+carregararquivo2
+
+//------------------------------------------------------------------------------
+//procedimento para carregar o segundo vetor com os dados do txt
+
+procedimento carregararquivo2
+
+arquivo "L:\algoritimo\VENDAS.TXT"
+
+var
+cliente:vetor [1..244,1..5] de literal
+x : inteiro
+txt:literal
+
+inicio
+para x de 1 ate 244 faca
+   leia(txt)
+   y <-1
+   i<-2
+   palavra <- copia (txt,i,1)
+   enquanto palavra <> carac(34) faca
+      cliente[x,y] <- cliente[x,y] + palavra
+      i<- i+1
+      palavra <- copia(txt,i,1)
+   fimenquanto
+   y <- y + 1
+   se palavra = carac (34)entao
+      i <- i + 3
+      palavra <- copia (txt,i,1)
+      enquanto palavra <> carac(34) faca
+         cliente[x,y] <-cliente[x,y] + palavra
+         i<- i+1
+         palavra <- copia(txt,i,1)
+      fimenquanto
+   fimse
+   y <- y + 1
+   se palavra = carac (34)entao
+      i <- i + 3
+      palavra <- copia (txt,i,1)
+      enquanto palavra <> carac(34) faca
+         cliente[x,y] <- cliente[x,y] + palavra
+         i<- i+1
+         palavra <- copia(txt,i,1)
+      fimenquanto
+   fimse
+fimpara
 
 fimprocedimento
 
+//------------------------------------------------------------------------------
+
 inicio
-carregaarquivo
-menu
+
 fimalgoritmo
