@@ -108,7 +108,7 @@ procedimento carregararquivo2
 arquivo "L:\algoritimo\VENDAS.TXT"
 
 var
-cliente:vetor [1..244,1..5] de literal
+vendas:vetor [1..160,1..5] de literal
 x : inteiro
 txt:literal
 
@@ -119,7 +119,7 @@ para x de 1 ate 244 faca
    i<-2
    palavra <- copia (txt,i,1)
    enquanto palavra <> carac(34) faca
-      cliente[x,y] <- cliente[x,y] + palavra
+      vendas[x,y] <- vendas[x,y] + palavra
       i<- i+1
       palavra <- copia(txt,i,1)
    fimenquanto
@@ -128,7 +128,7 @@ para x de 1 ate 244 faca
       i <- i + 3
       palavra <- copia (txt,i,1)
       enquanto palavra <> carac(34) faca
-         cliente[x,y] <-cliente[x,y] + palavra
+         vendas[x,y] <-vendas[x,y] + palavra
          i<- i+1
          palavra <- copia(txt,i,1)
       fimenquanto
@@ -138,7 +138,7 @@ para x de 1 ate 244 faca
       i <- i + 3
       palavra <- copia (txt,i,1)
       enquanto palavra <> carac(34) faca
-         cliente[x,y] <- cliente[x,y] + palavra
+         vendas[x,y] <- vendas[x,y] + palavra
          i<- i+1
          palavra <- copia(txt,i,1)
       fimenquanto
