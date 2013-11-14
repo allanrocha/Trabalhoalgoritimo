@@ -53,7 +53,6 @@ caso 9
 fimescolha
 fimprocedimento
 
-
 //------------------------------------------------------------------------------
 
 //procedimento para carregar os vetores com os registro
