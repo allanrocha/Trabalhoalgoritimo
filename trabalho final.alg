@@ -60,8 +60,8 @@ fimprocedimento
 
 procedimento carregaarquivo
 
-arquivo "L:\algoritimo\CLIENTES.TXT"
-
+arquivo "CLIENTES.TXT"
+//arquivo "L:\algoritimo\CLIENTES.TXT"
 var
 cliente:vetor [1..244,1..5] de literal
 x : inteiro
@@ -105,7 +105,7 @@ carregararquivo2
 
 procedimento carregararquivo2
 
-arquivo "L:\algoritimo\VENDAS.TXT"
+arquivo "VENDAS.TXT"
 
 var
 vendas:vetor [1..160,1..5] de literal
