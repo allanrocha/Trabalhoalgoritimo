@@ -142,7 +142,7 @@ para x de 1 ate 160 faca
       i<- i+1
       palavra <- copia(txt,i,1)
    fimenquanto
-   cliente[x] <- cliente [x] + " "
+   vendas[x] <- vendas[x] + " "
    se palavra = carac (34)entao
       i <- i + 3
       palavra <- copia (txt,i,1)
@@ -152,7 +152,7 @@ para x de 1 ate 160 faca
          palavra <- copia(txt,i,1)
       fimenquanto
    fimse
-   cliente[x] <- cliente [x] + " "
+   vendas[x] <- vendas[x] + " "
    se palavra = carac (34)entao
       i <- i + 3
       palavra <- copia (txt,i,1)
@@ -162,7 +162,7 @@ para x de 1 ate 160 faca
          palavra <- copia(txt,i,1)
       fimenquanto
    fimse
-   cliente[x] <- cliente [x] + " "
+   vendas[x] <- vendas[x] + " "
    se palavra = carac (34)entao
       i <- i + 3
       palavra <- copia (txt,i,1)
@@ -172,7 +172,7 @@ para x de 1 ate 160 faca
          palavra <- copia(txt,i,1)
       fimenquanto
    fimse
-   cliente[x] <- cliente [x] + " "
+   vendas[x] <- vendas[x] + " "
    se palavra = carac (34)entao
       i <- i + 3
       palavra <- copia (txt,i,1)
@@ -190,4 +190,5 @@ fimprocedimento
 
 inicio
 carregaarquivo
+carregaarquivo2
 fimalgoritmo
