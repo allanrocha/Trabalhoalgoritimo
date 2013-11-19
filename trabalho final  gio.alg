@@ -66,14 +66,28 @@ x:inteiro
 sms:literal
 inicio
 para x de 1 ate 216 faca
-     leia(sms)
-     clientes[x]<-sms
+   leia(sms)
+   clientes[x]<-sms
 fimpara
 
 fimprocedimento
 //------------------------------------------------------------------------------
 
+//procedimento para carregar o vetor vendas com os dados do txt
+procedimento carrega_vendas
+arquivo "VENDAS.TXT"
+var
+x:inteiro
+sms:literal
+inicio
+para x de 1 ate 160 faca
+   leia(sms)
+   vendas[x]<-sms
+fimpara
+
+fimprocedimento
+//------------------------------------------------------------------------------
 inicio
 carrega_clientes
-
+carrega_vendas
 fimalgoritmo
