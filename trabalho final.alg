@@ -4,7 +4,8 @@ algoritmo "semnome"
 // Data : 12/11/2013
 // Seção de Declarações
 var
-
+cliente:vetor [1..244] de literal
+vendas:vetor [1..160] de literal
 procedimento menu
 
 var
@@ -61,84 +62,122 @@ fimprocedimento
 procedimento carregaarquivo
 
 arquivo "CLIENTES.TXT"
-//arquivo "L:\algoritimo\CLIENTES.TXT"
+arquivo "C:\Users\allan\Documents\faculdade\algoritimo\ultimo trabalho\Trabalhoalgoritimo\CLIENTES.TXT"
 var
-cliente:vetor [1..244,1..5] de literal
-x : inteiro
-txt:literal
+x,i : inteiro
+txt,palavra:literal
 inicio
-para x de 1 ate 244 faca
+
+para x de 1 ate 216 faca
+   limpatela
    leia(txt)
-   y <-1
    i<-2
    palavra <- copia (txt,i,1)
    enquanto palavra <> carac(34) faca
-      cliente[x,y] <- cliente[x,y] + palavra
+      cliente[x] <- cliente[x] + palavra
       i<- i+1
       palavra <- copia(txt,i,1)
    fimenquanto
-   y <- y + 1
+   cliente[x] <- cliente [x] + " "
    se palavra = carac (34)entao
       i <- i + 3
       palavra <- copia (txt,i,1)
       enquanto palavra <> carac(34) faca
-         cliente[x,y] <-cliente[x,y] + palavra
+         cliente[x] <-cliente[x] + palavra
          i<- i+1
          palavra <- copia(txt,i,1)
       fimenquanto
    fimse
-   y <- y + 1
+   cliente[x] <- cliente [x] + " "
    se palavra = carac (34)entao
       i <- i + 3
       palavra <- copia (txt,i,1)
       enquanto palavra <> carac(34) faca
-         cliente[x,y] <- cliente[x,y] + palavra
+         cliente[x] <- cliente[x] + palavra
          i<- i+1
          palavra <- copia(txt,i,1)
       fimenquanto
+      cliente[x] <- cliente [x] + " "
+      se palavra = carac (34)entao
+         i <- i + 3
+         palavra <- copia (txt,i,1)
+         enquanto palavra <> carac(34) faca
+            cliente[x] <-cliente[x] + palavra
+            i<- i+1
+            palavra <- copia(txt,i,1)
+         fimenquanto
+         cliente[x] <- cliente [x] + " "
+         se palavra = carac (34)entao
+            i <- i + 3
+            palavra <- copia (txt,i,1)
+            enquanto palavra <> carac(34) faca
+               cliente[x] <- cliente[x] + palavra
+               i<- i+1
+               palavra <- copia(txt,i,1)
+            fimenquanto
+         fimse
+      fimse
    fimse
 fimpara
-carregararquivo2
-
+fimprocedimento
 //------------------------------------------------------------------------------
 //procedimento para carregar o segundo vetor com os dados do txt
 
-procedimento carregararquivo2
+procedimento carregaarquivo2
 
-arquivo "VENDAS.TXT"
+arquivo "C:\Users\allan\Documents\faculdade\algoritimo\ultimo trabalho\Trabalhoalgoritimo\VENDAS.TXT"
 
 var
-vendas:vetor [1..160,1..5] de literal
-x : inteiro
-txt:literal
+x,i: inteiro
+txt,palavra:literal
 
 inicio
-para x de 1 ate 244 faca
+para x de 1 ate 160 faca
+   limpatela
    leia(txt)
-   y <-1
    i<-2
    palavra <- copia (txt,i,1)
    enquanto palavra <> carac(34) faca
-      vendas[x,y] <- vendas[x,y] + palavra
+      vendas[x] <- vendas[x] + palavra
       i<- i+1
       palavra <- copia(txt,i,1)
    fimenquanto
-   y <- y + 1
+   cliente[x] <- cliente [x] + " "
    se palavra = carac (34)entao
       i <- i + 3
       palavra <- copia (txt,i,1)
       enquanto palavra <> carac(34) faca
-         vendas[x,y] <-vendas[x,y] + palavra
+         vendas[x] <-vendas[x] + palavra
          i<- i+1
          palavra <- copia(txt,i,1)
       fimenquanto
    fimse
-   y <- y + 1
+   cliente[x] <- cliente [x] + " "
    se palavra = carac (34)entao
       i <- i + 3
       palavra <- copia (txt,i,1)
       enquanto palavra <> carac(34) faca
-         vendas[x,y] <- vendas[x,y] + palavra
+         vendas[x] <- vendas[x] + palavra
+         i<- i+1
+         palavra <- copia(txt,i,1)
+      fimenquanto
+   fimse
+   cliente[x] <- cliente [x] + " "
+   se palavra = carac (34)entao
+      i <- i + 3
+      palavra <- copia (txt,i,1)
+      enquanto palavra <> carac(34) faca
+         vendas[x] <-vendas[x] + palavra
+         i<- i+1
+         palavra <- copia(txt,i,1)
+      fimenquanto
+   fimse
+   cliente[x] <- cliente [x] + " "
+   se palavra = carac (34)entao
+      i <- i + 3
+      palavra <- copia (txt,i,1)
+      enquanto palavra <> carac(34) faca
+         vendas[x] <-vendas[x] + palavra
          i<- i+1
          palavra <- copia(txt,i,1)
       fimenquanto
@@ -150,5 +189,5 @@ fimprocedimento
 //------------------------------------------------------------------------------
 
 inicio
-
+carregaarquivo
 fimalgoritmo
