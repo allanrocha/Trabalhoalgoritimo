@@ -90,21 +90,22 @@ fimprocedimento
 
 //procedimento para carregar o vetor vendas com os dados do cliente
 procedimento coloca_clientes_em_vendas
-arquivo "VENDAS.TXT"
 var
 x,y:inteiro
 sms:literal
+achou:logico
 inicio
 para x de 1 ate 160 faca
    achou <- falso
    y<-1
    enquanto (nao achou) e (y<217) faca
-      se copia(vendas[x],18,6)=copia(clientes[y],2,6)
+      se copia(vendas[x],19,6)=copia(clientes[y],2,6) entao
          achou<-verdadeiro
-         escreval("\õ/")
+         vendas[x]<-vendas[x]+clientes[y]
       fimse
+      y<-y+1
    fimenquanto
-   y<-y+1
+
 
 fimpara
 
