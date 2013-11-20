@@ -87,7 +87,32 @@ fimpara
 
 fimprocedimento
 //------------------------------------------------------------------------------
+
+//procedimento para carregar o vetor vendas com os dados do cliente
+procedimento coloca_clientes_em_vendas
+arquivo "VENDAS.TXT"
+var
+x,y:inteiro
+sms:literal
+inicio
+para x de 1 ate 160 faca
+   achou <- falso
+   y<-1
+   enquanto (nao achou) e (y<217) faca
+      se copia(vendas[x],18,6)=copia(clientes[y],2,6)
+         achou<-verdadeiro
+         escreval("\õ/")
+      fimse
+   fimenquanto
+   y<-y+1
+
+fimpara
+
+fimprocedimento
+//------------------------------------------------------------------------------
 inicio
 carrega_clientes
 carrega_vendas
+limpatela
+coloca_clientes_em_vendas
 fimalgoritmo
