@@ -4,8 +4,9 @@ algoritmo "semnome"
 // Data : 12/11/2013
 // Seção de Declarações
 var
-cliente:vetor [1..244] de literal
+cliente:vetor [1..216] de literal
 vendas:vetor [1..160] de literal
+cont:inteiro
 procedimento menu
 
 var
@@ -58,7 +59,7 @@ fimprocedimento
 //------------------------------------------------------------------------------
 
 //procedimento para carregar o vetor 1 com os dados do txt
-
+//carac 34 na tabela asc é (") aspa dupla
 procedimento carregaarquivo
 
 arquivo "CLIENTES.TXT"
@@ -122,7 +123,7 @@ fimpara
 fimprocedimento
 //------------------------------------------------------------------------------
 //procedimento para carregar o segundo vetor com os dados do txt
-
+//o carac 34 na tabela asc é aspa dupla(")
 procedimento carregaarquivo2
 
 arquivo "C:\Users\allan\Documents\faculdade\algoritimo\ultimo trabalho\Trabalhoalgoritimo\VENDAS.TXT"
@@ -183,12 +184,49 @@ para x de 1 ate 160 faca
       fimenquanto
    fimse
 fimpara
-
 fimprocedimento
 
 //------------------------------------------------------------------------------
+//procedimento para montar o relatorio sintetico do programa
+//carac 32 na tabela asc é espaço
+funcao verificacompras(cliente[cont]:literal):inteiro
 
+var
+i,x:inteiro
+
+inicio
+i <- 1
+para x de 1 ate 216 faca
+   palavra <- copia (cliente[x],i,7)
+   i<- i + 1
+   enquanto palavra <> carac(32) faca
+      palavra <- copia (cliente[x],7,1)
+      i<- i + 1
+      palavra <- copia(txt,i,1)
+   fimenquanto
+   i <- i+1
+   palavra <- copia (cliente[x],i,7)
+   enquanto palavra <> carac(32) faca
+      palavra <- copia (cliente[x],7,1)
+      i<- i+1
+      palavra <- copia(txt,i,1)
+   fimenquanto
+   palavra <- ""
+   i <- i+1
+   palavra <- copia (cliente[x],i,7)
+   enquanto palavra <> carac(32) faca
+      palavra <- copia (cliente[x],7,1)
+      i<- i+1
+      palavra <- copia(txt,i,1)
+   fimenquanto
+fimpara
+retorne(palavra)
+fimfuncao
+//------------------------------------------------------------------------------
 inicio
 carregaarquivo
 carregaarquivo2
+para cont de 1 ate 216 faca
+escreva("",verificacompras(cliente[cont])
+fimpara
 fimalgoritmo
