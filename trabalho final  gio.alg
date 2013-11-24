@@ -57,7 +57,24 @@ fimprocedimento
 
 
 //------------------------------------------------------------------------------
+
 //contando as virgulas
+
+funcao conta_virgula (numero: inteiro;frase:literal):inteiro
+var
+y,x : inteiro
+inicio
+x<-0
+y<-0
+enquanto (y<numero) faca
+   x<- x+1
+   se copia(frase,x,1) ="," entao
+      y<- y+1
+   fimse
+fimenquanto
+
+retorne(x)
+fimfuncao
 //------------------------------------------------------------------------------
 
 //procedimento para carregar o vetor clientes com os dados do txt
@@ -102,8 +119,9 @@ para x de 1 ate 160 faca
    y<-1
    enquanto (nao achou) e (y<217) faca
       se copia(vendas[x],19,6)=copia(clientes[y],2,6) entao
+
          achou<-verdadeiro
-         vendas[x]<-vendas[x]+copia(clientes[y],10,87)
+         vendas[x]<-vendas[x]+copia(clientes[y],10,conta_virgula(2,clientes[y])-9)
       fimse
       y<-y+1
    fimenquanto
@@ -116,6 +134,7 @@ fimprocedimento
 inicio
 carrega_clientes
 carrega_vendas
-limpatela
+//limpatela
 coloca_clientes_em_vendas
+
 fimalgoritmo
