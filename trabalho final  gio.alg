@@ -57,6 +57,8 @@ fimprocedimento
 
 
 //------------------------------------------------------------------------------
+//contando as virgulas
+//------------------------------------------------------------------------------
 
 //procedimento para carregar o vetor clientes com os dados do txt
 procedimento carrega_clientes
@@ -101,7 +103,7 @@ para x de 1 ate 160 faca
    enquanto (nao achou) e (y<217) faca
       se copia(vendas[x],19,6)=copia(clientes[y],2,6) entao
          achou<-verdadeiro
-         vendas[x]<-vendas[x]+clientes[y]
+         vendas[x]<-vendas[x]+copia(clientes[y],10,87)
       fimse
       y<-y+1
    fimenquanto
