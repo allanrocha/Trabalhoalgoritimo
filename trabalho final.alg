@@ -2,7 +2,7 @@ algoritmo "semnome"
 // Função :
 // Autor :
 // Data : 12/11/2013
-// Seção de Declarações
+
 var
 cliente:vetor [1..216] de literal
 vendas:vetor [1..160] de literal
