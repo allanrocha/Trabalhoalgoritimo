@@ -211,4 +211,7 @@ fimfuncao
 inicio
 carregaarquivo
 carregaarquivo2
+para cont de 1 ate 216 faca
+escreva("",verifica(cliente[cont]))
+fimpara
 fimalgoritmo
