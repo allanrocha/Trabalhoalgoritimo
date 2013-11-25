@@ -63,7 +63,7 @@ fimprocedimento
 procedimento carregaarquivo
 
 arquivo "CLIENTES.TXT"
-arquivo "C:\Users\allan\Documents\faculdade\algoritimo\ultimo trabalho\Trabalhoalgoritimo\CLIENTES.TXT"
+arquivo "C:\Users\ti\Documents\GitHub\Trabalhoalgoritimo\CLIENTES.TXT"
 var
 x,i : inteiro
 txt,palavra:literal
@@ -126,7 +126,7 @@ fimprocedimento
 //o carac 34 na tabela asc é aspa dupla(")
 procedimento carregaarquivo2
 
-arquivo "C:\Users\allan\Documents\faculdade\algoritimo\ultimo trabalho\Trabalhoalgoritimo\VENDAS.TXT"
+arquivo "C:\Users\ti\Documents\GitHub\Trabalhoalgoritimo\VENDAS.TXT"
 
 var
 x,i: inteiro
@@ -189,44 +189,29 @@ fimprocedimento
 //------------------------------------------------------------------------------
 //procedimento para montar o relatorio sintetico do programa
 //carac 32 na tabela asc é espaço
-funcao verificacompras(cliente[cont]:literal):inteiro
+funcao verifica(palavra:literal):inteiro
 
 var
 i,x:inteiro
-
+txt:literal
 inicio
 i <- 1
 para x de 1 ate 216 faca
-   palavra <- copia (cliente[x],i,7)
+   palavra <- copia (cliente[x],8,i)
    i<- i + 1
    enquanto palavra <> carac(32) faca
-      palavra <- copia (cliente[x],7,1)
+      palavra <- copia(cliente[x],8,i)
       i<- i + 1
-      palavra <- copia(txt,i,1)
-   fimenquanto
-   i <- i+1
-   palavra <- copia (cliente[x],i,7)
-   enquanto palavra <> carac(32) faca
-      palavra <- copia (cliente[x],7,1)
-      i<- i+1
-      palavra <- copia(txt,i,1)
-   fimenquanto
-   palavra <- ""
-   i <- i+1
-   palavra <- copia (cliente[x],i,7)
-   enquanto palavra <> carac(32) faca
-      palavra <- copia (cliente[x],7,1)
-      i<- i+1
-      palavra <- copia(txt,i,1)
+      txt <- palavra +copia (cliente[x],8,i)
    fimenquanto
 fimpara
-retorne(palavra)
+retorne(txt)
 fimfuncao
 //------------------------------------------------------------------------------
 inicio
 carregaarquivo
 carregaarquivo2
-para cont de 1 ate 216 faca
-escreva("",verificacompras(cliente[cont])
+para cont de 1 ate 10 faca
+escreval("",verifica(cliente[cont]))
 fimpara
 fimalgoritmo
