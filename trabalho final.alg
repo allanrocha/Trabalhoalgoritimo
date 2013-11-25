@@ -211,7 +211,4 @@ fimfuncao
 inicio
 carregaarquivo
 carregaarquivo2
-para cont de 1 ate 10 faca
-escreval("",verifica(cliente[cont]))
-fimpara
 fimalgoritmo
