@@ -7,7 +7,7 @@ var
 cliente:vetor [1..216] de literal
 vendas:vetor [1..160] de literal
 cont:inteiro
-teste:literal
+teste:inteiro
 procedimento menu
 
 var
@@ -207,7 +207,7 @@ para x de 1 ate 216 faca
       txt <- palavra + txt
    fimenquanto
 fimpara
-retorne(txt)
+retorne([txt])
 fimfuncao
 //------------------------------------------------------------------------------
 inicio
