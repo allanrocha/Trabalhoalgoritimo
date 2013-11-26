@@ -7,6 +7,7 @@ var
 cliente:vetor [1..216] de literal
 vendas:vetor [1..160] de literal
 cont:inteiro
+teste:literal
 procedimento menu
 
 var
@@ -62,8 +63,9 @@ fimprocedimento
 //carac 34 na tabela asc é (") aspa dupla
 procedimento carregaarquivo
 
-arquivo "CLIENTES.TXT"
-arquivo "C:\Users\ti\Documents\GitHub\Trabalhoalgoritimo\CLIENTES.TXT"
+//arquivo "CLIENTES.TXT"
+//arquivo "C:\Users\ti\Documents\GitHub\Trabalhoalgoritimo\CLIENTES.TXT"
+arquivo "C:\Users\allan\Documents\GitHub\Trabalhoalgoritimo\CLIENTES.TXT"
 var
 x,i : inteiro
 txt,palavra:literal
@@ -126,8 +128,8 @@ fimprocedimento
 //o carac 34 na tabela asc é aspa dupla(")
 procedimento carregaarquivo2
 
-arquivo "C:\Users\ti\Documents\GitHub\Trabalhoalgoritimo\VENDAS.TXT"
-
+//arquivo "C:\Users\ti\Documents\GitHub\Trabalhoalgoritimo\VENDAS.TXT"
+arquivo "C:\Users\allan\Documents\GitHub\Trabalhoalgoritimo\VENDAS.TXT"
 var
 x,i: inteiro
 txt,palavra:literal
@@ -189,7 +191,7 @@ fimprocedimento
 //------------------------------------------------------------------------------
 //procedimento para montar o relatorio sintetico do programa
 //carac 32 na tabela asc é espaço
-funcao verifica(palavra:literal):inteiro
+funcao verifica(var palavra:literal):inteiro
 
 var
 i,x:inteiro
@@ -197,12 +199,12 @@ txt:literal
 inicio
 i <- 1
 para x de 1 ate 216 faca
-   palavra <- copia (cliente[x],8,i)
+   palavra <- copia (cliente[x],1,i)
    i<- i + 1
    enquanto palavra <> carac(32) faca
-      palavra <- copia(cliente[x],8,i)
+      palavra <- copia(cliente[x],1,i)
       i<- i + 1
-      txt <- palavra +copia (cliente[x],8,i)
+      txt <- palavra + txt
    fimenquanto
 fimpara
 retorne(txt)
@@ -212,6 +214,7 @@ inicio
 carregaarquivo
 carregaarquivo2
 para cont de 1 ate 216 faca
-escreva("",verifica(cliente[cont]))
+teste <- verifica(cliente[cont])
+escreval(":",teste)
 fimpara
 fimalgoritmo
