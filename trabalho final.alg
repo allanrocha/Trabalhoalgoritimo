@@ -7,7 +7,7 @@ var
 cliente:vetor [1..216] de literal
 vendas:vetor [1..160] de literal
 cont:inteiro
-teste:inteiro
+teste:literal
 procedimento menu
 
 var
@@ -64,8 +64,8 @@ fimprocedimento
 procedimento carregaarquivo
 
 //arquivo "CLIENTES.TXT"
-//arquivo "C:\Users\ti\Documents\GitHub\Trabalhoalgoritimo\CLIENTES.TXT"
-arquivo "C:\Users\allan\Documents\GitHub\Trabalhoalgoritimo\CLIENTES.TXT"
+arquivo "C:\Users\ti\Documents\GitHub\Trabalhoalgoritimo\CLIENTES.TXT"
+//arquivo "C:\Users\allan\Documents\GitHub\Trabalhoalgoritimo\CLIENTES.TXT"
 var
 x,i : inteiro
 txt,palavra:literal
@@ -81,7 +81,7 @@ para x de 1 ate 216 faca
       i<- i+1
       palavra <- copia(txt,i,1)
    fimenquanto
-   cliente[x] <- cliente [x] + " "
+   cliente[x] <- cliente [x] + ";"
    se palavra = carac (34)entao
       i <- i + 3
       palavra <- copia (txt,i,1)
@@ -91,7 +91,7 @@ para x de 1 ate 216 faca
          palavra <- copia(txt,i,1)
       fimenquanto
    fimse
-   cliente[x] <- cliente [x] + " "
+   cliente[x] <- cliente [x] + ";"
    se palavra = carac (34)entao
       i <- i + 3
       palavra <- copia (txt,i,1)
@@ -100,7 +100,7 @@ para x de 1 ate 216 faca
          i<- i+1
          palavra <- copia(txt,i,1)
       fimenquanto
-      cliente[x] <- cliente [x] + " "
+      cliente[x] <- cliente [x] + ";"
       se palavra = carac (34)entao
          i <- i + 3
          palavra <- copia (txt,i,1)
@@ -109,7 +109,7 @@ para x de 1 ate 216 faca
             i<- i+1
             palavra <- copia(txt,i,1)
          fimenquanto
-         cliente[x] <- cliente [x] + " "
+         cliente[x] <- cliente [x] + ";"
          se palavra = carac (34)entao
             i <- i + 3
             palavra <- copia (txt,i,1)
@@ -128,8 +128,8 @@ fimprocedimento
 //o carac 34 na tabela asc é aspa dupla(")
 procedimento carregaarquivo2
 
-//arquivo "C:\Users\ti\Documents\GitHub\Trabalhoalgoritimo\VENDAS.TXT"
-arquivo "C:\Users\allan\Documents\GitHub\Trabalhoalgoritimo\VENDAS.TXT"
+arquivo "C:\Users\ti\Documents\GitHub\Trabalhoalgoritimo\VENDAS.TXT"
+//arquivo "C:\Users\allan\Documents\GitHub\Trabalhoalgoritimo\VENDAS.TXT"
 var
 x,i: inteiro
 txt,palavra:literal
@@ -145,7 +145,7 @@ para x de 1 ate 160 faca
       i<- i+1
       palavra <- copia(txt,i,1)
    fimenquanto
-   vendas[x] <- vendas[x] + " "
+   vendas[x] <- vendas[x] + ";"
    se palavra = carac (34)entao
       i <- i + 3
       palavra <- copia (txt,i,1)
@@ -155,7 +155,7 @@ para x de 1 ate 160 faca
          palavra <- copia(txt,i,1)
       fimenquanto
    fimse
-   vendas[x] <- vendas[x] + " "
+   vendas[x] <- vendas[x] + ";"
    se palavra = carac (34)entao
       i <- i + 3
       palavra <- copia (txt,i,1)
@@ -165,7 +165,7 @@ para x de 1 ate 160 faca
          palavra <- copia(txt,i,1)
       fimenquanto
    fimse
-   vendas[x] <- vendas[x] + " "
+   vendas[x] <- vendas[x] + ";"
    se palavra = carac (34)entao
       i <- i + 3
       palavra <- copia (txt,i,1)
@@ -175,7 +175,7 @@ para x de 1 ate 160 faca
          palavra <- copia(txt,i,1)
       fimenquanto
    fimse
-   vendas[x] <- vendas[x] + " "
+   vendas[x] <- vendas[x] + ";"
    se palavra = carac (34)entao
       i <- i + 3
       palavra <- copia (txt,i,1)
@@ -191,7 +191,8 @@ fimprocedimento
 //------------------------------------------------------------------------------
 //procedimento para montar o relatorio sintetico do programa
 //carac 32 na tabela asc é espaço
-funcao verifica(var palavra:literal):inteiro
+//carac 59 é ponto e virgula (;)
+funcao verifica(palavra:literal):literal
 
 var
 i,x:inteiro
@@ -199,22 +200,27 @@ txt:literal
 inicio
 i <- 1
 para x de 1 ate 216 faca
-   palavra <- copia (cliente[x],1,i)
-   i<- i + 1
-   enquanto palavra <> carac(32) faca
-      palavra <- copia(cliente[x],1,i)
-      i<- i + 1
-      txt <- palavra + txt
-   fimenquanto
+   palavra <- copia (cliente[x],i,1)
+   i <- i + 1
+   se palavra <> carac (59)entao
+      txt <- palavra
+      i <- i + 1
+      repita
+         palavra <- copia(cliente[x],i,1)
+         i<- i + 1
+         txt <- palavra + txt
+      ate palavra <> carac(59)
+      fimrepita
+   fimse
+retorne(txt)
 fimpara
-retorne([txt])
 fimfuncao
 //------------------------------------------------------------------------------
 inicio
 carregaarquivo
 carregaarquivo2
 para cont de 1 ate 216 faca
-teste <- verifica(cliente[cont])
-escreval(":",teste)
+   teste <- verifica(cliente[cont])
+   escreval(":",teste)
 fimpara
 fimalgoritmo
